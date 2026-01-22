@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clash Royale Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Dashboard Clash Royale</h1>
+
+    <section>
+        <h2>Infos Joueur</h2>
+        <input id="playerTag" placeholder="Tag joueur (#ABCD)">
+        <button onclick="loadPlayer()">Charger</button>
+        <pre id="playerResult"></pre>
+    </section>
+
+    <section>
+        <h2>Infos Clan</h2>
+        <input id="clanTag" placeholder="Tag clan (#ABCD)">
+        <button onclick="loadClan()">Charger</button>
+        <pre id="clanResult"></pre>
+    </section>
+
+    <section>
+        <h2>Cartes</h2>
+        <button onclick="loadCards()">Afficher toutes les cartes</button>
+        <pre id="cardsResult"></pre>
+    </section>
+
+    <section>
+        <h2>Batailles récentes</h2>
+        <input id="battleTag" placeholder="Tag joueur (#ABCD)">
+        <button onclick="loadBattles()">Charger</button>
+        <pre id="battleResult"></pre>
+    </section>
+
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

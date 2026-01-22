@@ -30,3 +30,20 @@ func (c *ClashClient) GetPlayer(tag string) (map[string]interface{}, error) {
 
 	return data, nil
 }
+
+func (c *ClashClient) GetClan(tag string) (map[string]interface{}, error) {
+	url := fmt.Sprintf("https://api.clashroyale.com/v1/clans/%s", tag)
+	req, _ := http.NewRequest("GET", url, nil)
+	req.Header.Set("Authorization", "Bearer "+c.Token)
+
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+
+	var data map[string]interface{}
+	json.NewDecoder(resp.Body).Decode(&data)
+
+	return data, nil
+}
