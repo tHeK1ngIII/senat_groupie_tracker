@@ -1,0 +1,3 @@
+module SENAT_GROUPIE_TRACKER
+
+go 1.25.4
