@@ -12,7 +12,7 @@ func SetupRoutes() http.Handler {
 
 	r.Handle("/static/*", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	r.Get("/", controller.IndexHandler)
-	r.Get("/api/player", controller.PlayerHandler)
+	r.Get("/api/player", controller.IndexHandler)
 
 	return r
 }
