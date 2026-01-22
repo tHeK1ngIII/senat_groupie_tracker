@@ -15,6 +15,7 @@ func SetupRoutes() http.Handler {
 	// r.Get("/api/player", api.PlayerHandler)
 	r.Get("/dashboard", controller.DashboardHandler)
 	r.Get("/api/clan", controller.ClanHandler)
+	r.Get("/api/ip", controller.IpHandler)
 
 	return r
 }

@@ -50,3 +50,25 @@ async function loadBattles() {
     const data = await res.json();
     document.getElementById("battleResult").textContent = JSON.stringify(data, null, 2);
 }
+
+import React, { useEffect, useState } from "react";
+
+function Dashboard() {
+  const [clan, setClan] = useState(null);
+
+  useEffect(() => {
+    fetch("https://serene-encouragement.up.railway.app/api/clan?tag=%238CP0C2PL")
+      .then(res => res.json())
+      .then(data => setClan(data))
+      .catch(err => console.error(err));
+  }, []);
+
+  return (
+    <div>
+      <h1>Clash Royale Dashboard</h1>
+      {clan ? <pre>{JSON.stringify(clan, null, 2)}</pre> : <p>Chargement...</p>}
+    </div>
+  );
+}
+
+export default Dashboard;

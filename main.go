@@ -14,5 +14,5 @@ func main() {
 		port = "8080" // fallback en local
 	}
 	log.Println("Serveur lancé sur http://localhost:" + port)
-	http.ListenAndServe(":"+port, r)
+	log.Fatal(http.ListenAndServe(":"+port, r))
 }
