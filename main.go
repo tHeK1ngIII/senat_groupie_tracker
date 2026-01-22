@@ -4,10 +4,15 @@ import (
 	"SENAT_GROUPIE_TRACKER/router"
 	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
 	r := router.SetupRoutes()
-	log.Println("Serveur lancé sur http://localhost:8080")
-	http.ListenAndServe(":8080", r)
+	port := os.Getenv("PORT") // Railway/Render te donnent ce port
+	if port == "" {
+		port = "8080" // fallback en local
+	}
+	log.Println("Serveur lancé sur http://localhost:" + port)
+	http.ListenAndServe(":"+port, r)
 }
