@@ -1,7 +1,4 @@
-app = "senat-groupie-tracker"
-
-[build]
-  builder = "paketobuildpacks/builder:base"
+app = "adem-clash-dashboard"
 
 [env]
   PORT = "8080"
