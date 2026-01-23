@@ -12,6 +12,7 @@ func main() {
 	port := os.Getenv("PORT") // Railway/Render te donnent ce port
 	if port == "" {
 		port = "8080" // fallback en local
+
 	}
 	log.Println("Serveur lancé sur http://localhost:" + port)
 	log.Fatal(http.ListenAndServe(":"+port, r))
