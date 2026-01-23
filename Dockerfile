@@ -1,11 +1,12 @@
-# Étape 1 : builder le binaire Go
-FROM golang:1.21 AS builder
+# Étape 1 : builder avec Go >= 1.25.4
+FROM golang:1.25.4 AS builder
 WORKDIR /app
+COPY go.mod go.sum ./
+RUN go mod download
 COPY . .
-RUN go mod tidy
 RUN go build -o server main.go
 
-# Étape 2 : image finale
+# Étape 2 : image finale légère
 FROM debian:bullseye-slim
 WORKDIR /app
 COPY --from=builder /app/server .
